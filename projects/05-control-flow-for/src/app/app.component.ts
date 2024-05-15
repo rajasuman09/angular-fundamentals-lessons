@@ -11,24 +11,32 @@ import { Component } from '@angular/core';
           <img class="product-image" src="https://placehold.co/100x100" />
         </div>
         <section class="details">
-          <p class="title"><!-- car make and model--></p>
-          <hr />
-          <p class="detail">
-            <span>Year</span>
-            <span><!-- year --></span>
-          </p>
-          <div class="detail">
-            <span>Transmission</span>
-            <span><!-- transmission --></span>
-          </div>
-          <p class="detail">
-            <span>Mileage</span>
-            <span><!-- miles --></span>
-          </p>
-          <p class="detail">
-            <span>Price</span>
-            <span><!-- price --></span>
-          </p>
+          @for (item of carList; track $index) {
+            <p class="title">
+              <!-- car make and model-->
+              {{ item.make  }}, {{item.model}}
+            </p>
+            <hr />
+            <p class="detail">
+              <span>Year</span>
+              <span>{{item.year}}</span>
+            </p>
+            <div class="detail">
+              <span>Transmission</span>
+              <span>{{item.transmission}}</span>
+            </div>
+            <p class="detail">
+              <span>Mileage</span>
+              <span>{{item.miles}}</span>
+            </p>
+            <p class="detail">
+              <span>Price</span>
+              <span>{{item.price}}</span>
+            </p>
+          }
+          @empty {
+            No Data
+          }
         </section>
       </article>
     </section>
